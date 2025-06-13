@@ -223,3 +223,18 @@ def get_model():
     if model_loader.model is None:
         model_loader.load_model()
     return model_loader
+
+import os
+
+# Create directories if they don't exist
+os.makedirs("app/model", exist_ok=True)
+
+def download_model():
+    model_path = "app/model/model_vgg16.keras"
+    if not os.path.exists(model_path):
+        import gdown
+        url = "https://drive.google.com/uc?id=1VweyVdVK4CULSNLQKQ-aK8b541In4eAj&export=download"  # Ganti FILE_ID
+        gdown.download(url, model_path, quiet=False)
+
+# Panggil download_model() sebelum load model
+download_model()
