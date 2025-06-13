@@ -1,1 +1,2 @@
 uvicorn app.main:app --host 0.0.0.0 --port $PORT
+web: apt-get update && apt-get install -y libgl1 && uvicorn app.main:app --host 0.0.0.0 --port $PORT
